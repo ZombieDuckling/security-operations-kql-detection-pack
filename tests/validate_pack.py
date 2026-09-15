@@ -13,6 +13,17 @@ REQUIRED = {
 }
 
 
+def test_detection_inventory_matches_required_mapping():
+    expected = set(REQUIRED)
+    actual = {path.name for path in DETECTIONS.glob("*.kql")}
+
+    assert actual == expected, (
+        "Detection inventory must match REQUIRED mapping. "
+        f"Missing from disk: {sorted(expected - actual)}; "
+        f"Unmapped files: {sorted(actual - expected)}"
+    )
+
+
 def test_detection_files_exist_and_reference_expected_tables():
     for filename, table in REQUIRED.items():
         path = DETECTIONS / filename
@@ -35,6 +46,7 @@ def test_samples_and_watchlists_exist():
 
 
 if __name__ == "__main__":
+    test_detection_inventory_matches_required_mapping()
     test_detection_files_exist_and_reference_expected_tables()
     test_samples_and_watchlists_exist()
     print("security operations KQL detection pack validation passed")
