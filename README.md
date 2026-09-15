@@ -1,12 +1,12 @@
-# Sentinel KQL Detection Pack
+# Security Operations KQL Detection Pack
 
-A small Microsoft Sentinel portfolio project for security-engineer interviews. It contains KQL detections, synthetic log samples, watchlist examples, a workbook skeleton, and tests that validate the detection files are present and mapped to expected Sentinel tables.
+A small security operations portfolio project for security-engineer interviews. It contains KQL detections, synthetic log samples, watchlist examples, a workbook skeleton, and tests that validate the detection files are present and mapped to expected security operations tables.
 
 This repo uses synthetic data only. It is not copied from a production tenant and it does not contain private customer or tenant information.
 
 ## Skills demonstrated
 
-- Microsoft Sentinel analytics-rule thinking
+- security operations analytics-rule thinking
 - KQL detection writing
 - Entra ID sign-in and audit log investigation
 - Defender / endpoint and mailbox incident patterns
@@ -15,7 +15,7 @@ This repo uses synthetic data only. It is not copied from a production tenant an
 
 ## Detection coverage
 
-| Detection | Sentinel table | Scenario |
+| Detection | security operations table | Scenario |
 |---|---|---|
 | `impossible-travel.kql` | `SigninLogs` | Same user signs in from distant geographies in a short period |
 | `suspicious-oauth-consent.kql` | `AuditLogs` | New app/service principal or high-risk consent activity |
@@ -28,7 +28,7 @@ This repo uses synthetic data only. It is not copied from a production tenant an
 ## How to use
 
 1. Review detections in `detections/`.
-2. Adapt table names and fields to your Sentinel workspace schema.
+2. Adapt table names and fields to your security operations workspace schema.
 3. Use `watchlists/privileged-users.csv` and `watchlists/trusted-locations.csv` as examples for tuning.
 4. Import or adapt `workbooks/security-operations-overview.workbook.json` as a starting workbook skeleton.
 5. Run tests locally:

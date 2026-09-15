@@ -37,4 +37,4 @@ def test_samples_and_watchlists_exist():
 if __name__ == "__main__":
     test_detection_files_exist_and_reference_expected_tables()
     test_samples_and_watchlists_exist()
-    print("Sentinel KQL detection pack validation passed")
+    print("security operations KQL detection pack validation passed")
