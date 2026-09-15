@@ -1,0 +1,12 @@
+// Impossible travel pattern using Entra sign-in logs.
+// Tune country/region fields and thresholds for your workspace.
+SigninLogs
+| where TimeGenerated > ago(24h)
+| where ResultType == 0
+| project TimeGenerated, UserPrincipalName, IPAddress, Location, AppDisplayName
+| extend Country = tostring(Location.countryOrRegion)
+| summarize Countries = make_set(Country), IPs = make_set(IPAddress), FirstSeen=min(TimeGenerated), LastSeen=max(TimeGenerated), Apps=make_set(AppDisplayName) by UserPrincipalName
+| where array_length(Countries) >= 2
+| extend TimeWindowMinutes = datetime_diff('minute', LastSeen, FirstSeen)
+| where TimeWindowMinutes <= 180
+| project UserPrincipalName, Countries, IPs, Apps, FirstSeen, LastSeen, TimeWindowMinutes

@@ -1,0 +1,8 @@
+// Privileged role membership changes.
+AuditLogs
+| where TimeGenerated > ago(7d)
+| where OperationName has_any ("Add member to role", "Remove member from role", "Add eligible member to role", "Add member to role completed")
+| extend Actor = tostring(InitiatedBy.user.userPrincipalName)
+| extend Target = tostring(TargetResources[0].displayName)
+| extend Role = tostring(TargetResources[0].modifiedProperties)
+| project TimeGenerated, OperationName, Actor, Target, Role, Result

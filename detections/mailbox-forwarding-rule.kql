@@ -1,0 +1,7 @@
+// Suspicious mailbox forwarding or redirect rules.
+OfficeActivity
+| where TimeGenerated > ago(7d)
+| where Workload == "Exchange"
+| where Operation has_any ("New-InboxRule", "Set-InboxRule", "Set-Mailbox")
+| where Parameters has_any ("ForwardTo", "RedirectTo", "ForwardingSmtpAddress", "DeliverToMailboxAndForward")
+| project TimeGenerated, UserId, Operation, ClientIP, Parameters, ResultStatus

@@ -1,0 +1,3 @@
+TimeGenerated,Workload,Operation,UserId,ClientIP,Parameters
+2026-09-15T11:00:00Z,Exchange,New-InboxRule,finance@example.com,192.0.2.55,"ForwardTo=external@example.net"
+2026-09-15T11:30:00Z,SharePoint,FileDownloaded,analyst@example.com,192.0.2.60,"SourceFileName=client.xlsx"

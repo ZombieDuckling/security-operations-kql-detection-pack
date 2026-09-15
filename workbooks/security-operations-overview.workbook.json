@@ -1,0 +1,21 @@
+{
+  "version": "Notebook/1.0",
+  "items": [
+    {
+      "type": 1,
+      "content": {
+        "json": "# Security Operations Overview\\nSynthetic workbook skeleton for Sentinel demonstrations."
+      }
+    },
+    {
+      "type": 3,
+      "content": {
+        "version": "KqlItem/1.0",
+        "query": "SigninLogs | summarize count() by ResultType",
+        "size": 0,
+        "title": "Sign-in outcomes"
+      }
+    }
+  ],
+  "fallbackResourceIds": []
+}

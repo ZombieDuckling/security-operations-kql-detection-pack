@@ -1,0 +1,3 @@
+UserPrincipalName,Role,Notes
+admin.breakglass@example.com,BreakGlass,Monitor but exclude carefully from CA lockout policies
+secops.lead@example.com,SecurityAdministrator,Expected admin activity during business hours

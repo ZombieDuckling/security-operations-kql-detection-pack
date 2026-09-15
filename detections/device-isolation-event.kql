@@ -1,0 +1,5 @@
+// Defender for Endpoint device isolation or containment events.
+DeviceEvents
+| where TimeGenerated > ago(7d)
+| where ActionType has_any ("IsolateDevice", "UnisolateDevice", "ContainDevice", "UncontainDevice")
+| project TimeGenerated, DeviceName, DeviceId, ActionType, InitiatingProcessAccountName, InitiatingProcessCommandLine, ReportId

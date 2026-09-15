@@ -1,0 +1,9 @@
+// Suspicious OAuth consent or service-principal creation.
+AuditLogs
+| where TimeGenerated > ago(7d)
+| where OperationName has_any ("Consent to application", "Add service principal", "Add app role assignment to service principal")
+| extend Actor = tostring(InitiatedBy.user.userPrincipalName)
+| extend Target = tostring(TargetResources[0].displayName)
+| extend ModifiedProperties = tostring(TargetResources[0].modifiedProperties)
+| where ModifiedProperties has_any ("Directory.ReadWrite.All", "Mail.Read", "Files.Read.All", "offline_access", "User.ReadWrite.All")
+| project TimeGenerated, OperationName, Actor, Target, ModifiedProperties, Result

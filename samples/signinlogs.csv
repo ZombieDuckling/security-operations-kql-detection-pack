@@ -1,0 +1,5 @@
+TimeGenerated,UserPrincipalName,IPAddress,Country,AppDisplayName,ResultType
+2026-09-15T08:00:00Z,alex@example.com,203.0.113.10,ZA,Office 365,0
+2026-09-15T09:15:00Z,alex@example.com,198.51.100.90,NL,Office 365,0
+2026-09-15T09:30:00Z,test1@example.com,192.0.2.44,ZA,Office 365,50126
+2026-09-15T09:31:00Z,test2@example.com,192.0.2.44,ZA,Office 365,50126

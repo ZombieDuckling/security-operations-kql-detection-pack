@@ -1,0 +1,3 @@
+TimeGenerated,OperationName,Actor,Target,ModifiedProperties,Result
+2026-09-15T10:00:00Z,Consent to application,user@example.com,Unknown Publisher App,"Mail.Read Files.Read.All offline_access",success
+2026-09-15T10:20:00Z,Add member to role,admin@example.com,user2@example.com,Global Administrator,success

@@ -1,0 +1,7 @@
+// Repeated failed sign-ins that may indicate password spray or targeted guessing.
+SigninLogs
+| where TimeGenerated > ago(2h)
+| where ResultType != 0
+| summarize FailedAttempts=count(), Users=dcount(UserPrincipalName), UserSet=make_set(UserPrincipalName, 20) by IPAddress, AppDisplayName, bin(TimeGenerated, 30m)
+| where FailedAttempts >= 20 or Users >= 5
+| project TimeGenerated, IPAddress, AppDisplayName, FailedAttempts, Users, UserSet
